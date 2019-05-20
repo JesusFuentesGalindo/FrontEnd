@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+    <head>
+        
+        <title>Proceso de Extracciones</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="José de Jesús Fuentes Galindo" />
+        
+        
+        <link rel="stylesheet" href="../css/efectoContraerExpandir.css" />
+        <script type="text/javascript" src="../js/efectoContraerExpandir.js"></script>
+        
+        
+        <link rel="stylesheet" href="../css/basico.css" />
+        
+    </head>
+    <body>
+        <div>
+            
+            <header>
+                <p><a href="../index.html">Inicio</a></p>
+                <h1>Proceso de Extracción de Datos Para Generación de Reportes</h1>
+            </header>
+            
+            <!-- Inicia Generales -->
+            <article>
+                
+                <header>
+                    <h2>Generales</h2>
+                </header>
+                
+                <p>
+                    <span class="negrita">Objetivo: </span> Descargar los datos necesarios desde la base de datos
+                    para la creación de los reportes de I&amp;C.
+                </p>
+                
+                <p>
+                    <span class="negrita">Justificación: </span>
+                    Este proceso es necesario debido a que se necesita extraer de las diferentes
+                    bases de datos la información necesaria para la realización de los reportes
+                    del área de Información y Control.
+                </p>
+                
+                <p>
+                    <span class="negrita">Resultado: </span>Archivo de texto o Excel con los datos que se extrajeron 
+                    desde la base de datos.
+                </p>
+                
+                <p>
+                    <span class="negrita">Entrada: </span>
+                </p>
+                <ul>
+                    <li>Conexión a base de datos SQLServer</li>
+                    <li>Consultas SQL</li>
+                </ul>                
+            </article>
+            <!-- Finaliza Generales -->
+            
+            <!-- Inicia Particulares -->
+            <article>
+                <header>
+                    <h2>Particulares</h2>
+                </header>
+                
+                <h3>Conexión a base de datos</h3>
+                <p>
+                    Es necesario contar con las conexiones a los siguientes servidores:
+                </p>
+                <ul>
+                    <li><strong>SKYMXSICO1</strong></li>
+                    <li><strong>SKYMXMULTI1</strong></li>
+                </ul>
+                
+                <h3>Consultas</h3>
+                <p>Las consultas necesarias se encuentran en: 
+                    <a href="\\Dt-val-98\I&C\Querys\Mis Query's -2017 y 2018">
+                        "\\Dt-val-98\I&amp;C\Querys\Mis Query's -2017 y 2018"</a>
+                </p>
+                
+                <h3>Distribuidores Instalación y/o Activación</h3>
+                <table border="1">
+                    <caption>Distribuidores</caption>
+                    <thead>
+                        <tr><th>Tipo</th><th>ID</th><th>Distribuidor</th><th>Estatus</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Master</td><td>CMX001</td><td>Audicel</td><td>Activo</td></tr>
+                        <tr><td>Master</td><td>CMX002</td><td>Codice</td><td>Activo</td></tr>
+                        <tr><td>Master</td><td>CMX003</td><td>Señal Satelite</td><td>Activo</td></tr>
+                        <tr><td>Master</td><td>CMX004</td><td>Gitsa o CTP</td><td>Activo</td></tr>
+                        <tr><td>Master</td><td>CMX005</td><td>Lusart</td><td>Activo</td></tr>
+                        <tr><td>Master</td><td>CMX006</td><td>VideoTam</td><td>Activo</td></tr>
+                        <tr><td>Master</td><td>CMX007</td><td>Enlace Digital</td><td>Baja</td></tr>
+                        <tr><td>Master</td><td>CMX008</td><td>TTE o TDA</td><td>Activo</td></tr>
+                        <tr><td>Master</td><td>CMX009</td><td>DLI o Setsa</td><td>Activo</td></tr>
+                        <tr><td>Fuerza Propia</td><td>CMX010</td><td>Multiregional</td><td>Activo</td></tr>
+                        <tr><td>Master</td><td>CMX011</td><td>Lamsat</td><td>Baja</td></tr>
+                    </tbody>
+                </table>
+            </article>
+            <!-- Finaliza Particulares -->
+            
+            <!-- Inicia Proceso -->
+            <article>
+                <header>
+                    <h2>Proceso</h2>
+                </header>
+                
+                <!-- Inicia No Ingresados -->
+                <section>
+                    <details class="abierto">
+                        <summary>No Ingresados (No Retornados) - 01</summary>
+                        <p>
+                            <span>Directorio de Extracción:</span> 
+                            <a href="\\dt-val-98\I&C\Reportes Operativos\Ventas\No Retornados Mensual\Extracciones">
+                                \\dt-val-98\I&amp;C\Reportes Operativos\Ventas\No Retornados Mensual\Extracciones
+                            </a>
+                        </p>
+
+                        <blockquote>
+                            <details class="abierto">
+                            <summary>Extracción Master</summary>
+                            <ol>
+
+                                <li>Conectarse al servidor <strong>SKYMXSICO1</strong></li>
+                                <li>Abrir Consulta: <a href="\\dt-val-98\I&C\Querys\Mis Query's -2017 y 2018\Mensual">No Retornados Master 2018.sql</a></li>
+                                <li>Seleccionar consulta de Master</li>
+                                <li>Seleccionar base de datos <strong>master</strong></li>
+                                <li>Seleccionar opción guardar consulta en archivo</li>
+                                <li>Ejecutar consulta</li>
+                                <li>Guardar archivo en <span>Directorio de Extracción</span> con el nombre 'No retornados Master_[Fecha Extracción].rpt'</li>
+                                <li>Cerrar consulta</li>
+                                <li>Desconectarse del servidor <strong>SKYMXSICO1</strong></li>
+                                <li>Fin</li>
+                            </ol>
+                            </details>
+                        </blockquote>
+                        
+                        <blockquote>
+                            <details class="abierto">
+                                <summary>Extracción Fuerza Propia</summary>
+                                <ol>
+
+                                    <li>Conectarse al servidor <strong>SKYMXMULTI1</strong></li>
+                                    <li>Abrir Consulta: <a href="\\dt-val-98\I&C\Querys\Mis Query's -2017 y 2018\Mensual">No Retornados Master 2018.sql</a></li>
+                                    <li>Seleccionar consulta de Distribuidor</li>
+                                    <li>Seleccionar base de datos <strong>St_Multiregional</strong></li>
+                                    <li>Seleccionar opción guardar consulta en archivo</li>
+                                    <li>Ejecutar consulta</li>
+                                    <li>Guardar archivo en <span>Directorio de Extracción</span> con el nombre 'No retornados Dist_[Fecha Extracción].rpt'</li>
+                                    <li>Cerrar consulta</li>
+                                    <li>Desconectarse del servidor <strong>SKYMXMULTI1</strong></li>
+                                    <li>Fin</li>
+                                </ol>
+                            </details>
+                        </blockquote>
+                        
+                    </details>
+                </section>
+                <!-- Finaliza No Ingresados -->
+                
+                <!-- Inicia Cálculo de personal -->
+                <section>
+                    <details class="abierto">
+                        <summary>Cálculo de personal (MX) - 04</summary>
+                        <p>
+                            <span>Directorio de Extracción:</span> 
+                            <a href="\\dt-val-98\I&C\Reportes Administrativos\Calculo y Productividad\Calculo Personal 2019\Extracciones">
+                                \\dt-val-98\I&amp;C\Reportes Administrativos\Calculo y Productividad\Calculo Personal 2019\Extracciones
+                            </a>
+                        </p>
+
+                        <blockquote>
+                            <details class="abierto">
+                                <summary>Extracción Master</summary>
+                                <ol>
+
+                                    <li>Conectarse al servidor <strong>SKYMXSICO1</strong></li>
+                                    <li>Abrir Consulta: <a href="\\dt-val-98\I&C\Querys\Mis Query's -2017 y 2018\Mensual">Calculo de personal.sql</a></li>
+                                    <li>Seleccionar consulta de Master</li>
+                                    <li>Seleccionar base de datos <strong>master</strong></li>
+                                    <li>Seleccionar opción guardar consulta en archivo</li>
+                                    <li>Ejecutar consulta</li>
+                                    <li>Guardar archivo en <span>Directorio de Extracción</span> con el nombre 'Cálculo  Master_[Fecha extracción].rpt'</li>
+                                    <li>Cerrar consulta</li>
+                                    <li>Desconectarse del servidor <strong>SKYMXSICO1</strong></li>
+                                    <li>Fin</li>
+                                </ol>
+                            </details>
+                        </blockquote>
+                        
+                        <blockquote>
+                            <details class="abierto">
+                                <summary>Extracción Fuerza Propia</summary>
+                                <ol>
+
+                                    <li>Conectarse al servidor <strong>SKYMXMULTI1</strong></li>
+                                    <li>Abrir Consulta: <a href="\\dt-val-98\I&C\Querys\Mis Query's -2017 y 2018\Mensual">Calculo de personal.sql</a></li>
+                                    <li>Seleccionar consulta de Distribuidor</li>
+                                    <li>Seleccionar base de datos <strong>St_Multiregional</strong></li>
+                                    <li>Seleccionar opción guardar consulta en archivo</li>
+                                    <li>Ejecutar consulta</li>
+                                    <li>Guardar archivo en <span>Directorio de Extracción</span> con el nombre 'Cálculo  Distr_[Fecha extracción].rpt'</li>
+                                    <li>Cerrar consulta</li>
+                                    <li>Desconectarse del servidor <strong>SKYMXMULTI1</strong></li>
+                                    <li>Fin</li>
+                                </ol>
+                            </details>
+                        </blockquote>
+                        
+                    </details>
+                </section>
+                <!-- Finaliza Cálculo de personal -->                
+                
+                <!-- Inicia Pen rechazo parcial y definitivo DI -->
+                <section>
+                    <details class="abierto">
+                        <summary>Pen rechazo parcial y definitivo DI (Calidad Fuerza Propia) - 07</summary>
+                        <p>
+                            <span>Directorio de Extracción:</span> 
+                            <a href="\\dt-val-98\I&C\Proceso de Penalizaciones\Penalizaciones Contratos\Archivos_Soporte\Calidad\Extracciones">
+                                \\dt-val-98\I&amp;C\Proceso de Penalizaciones\Penalizaciones Contratos\Archivos_Soporte\Calidad\Extracciones
+                            </a>
+                        </p>
+                        
+                        <blockquote>
+                            <details class="abierto">
+                                <summary>Extracción Calidad</summary>
+                                <ol>
+                                    <li>Conectarse al servidor <strong>SKYMXMULTI1</strong></li>
+                                    <li>Abrir Consulta: <a href="\\dt-val-98\I&C\Querys\Mis Query's -2017 y 2018\Lunes">Calidad_2017_2018_2019.sql</a></li>
+                                    <li>Seleccionar consulta de Distribuidor</li>
+                                    <li>Seleccionar base de datos <strong>St_Multiregional</strong></li>
+                                    <li>Seleccionar opción guardar consulta en archivo</li>
+                                    <li>Ejecutar consulta</li>
+                                    <li>Guardar archivo en <span>Directorio de Extracción</span> con el nombre 'Calidad Distribuidor_[Fecha Extracción].rpt'</li>
+                                    <li>Cerrar consulta</li>
+                                    <li>Desconectarse del servidor <strong>SKYMXMULTI1</strong></li>
+                                    <li>Fin</li>
+                                </ol>
+                            </details>
+                        </blockquote>
+                        
+                        <blockquote>
+                            <details class="abierto">
+                                <summary>Extracción Montos</summary>
+                                <ol>
+                                    <li>Conectarse al servidor <strong>SKYMXMULTI1</strong></li>
+                                    <li>Abrir Consulta: <a href="\\dt-val-98\I&C\Querys\Mis Query's -2017 y 2018\Lunes">Calidad_2017_2018_2019.sql</a></li>
+                                    <li>Obtener ID activación de la extracción de calidad Fuerza Propia</li>
+                                    <li>En la consulta Montos Distribuidor remplazar el id_activacion por los obtenidos del archivo de extracción de calidad Fuerza Propia</li>
+                                    <li>Seleccionar consulta Montos Distribuidor</li>
+                                    <li>Seleccionar base de datos <strong>St_Multiregional</strong></li>
+                                    <li>Seleccionar opción guardar consulta en archivo</li>
+                                    <li>Ejecutar consulta</li>
+                                    <li>Guardar archivo en <span>Directorio de Extracción</span> con el nombre 'Montos Dist_[Fecha Extracción].rpt'</li>
+                                    <li>Cerrar consulta</li>
+                                    <li>Desconectarse del servidor <strong>SKYMXMULTI1</strong></li>
+                                    <li>Fin</li>
+                                </ol>
+                            </details>
+                        </blockquote>
+                        
+                        <blockquote>
+                            <details class="abierto">
+                                <summary>Extracción Motivos de Rechazo</summary>
+                                <ol>
+                                    <li>Conectarse al servidor <strong>SKYMXMULTI1</strong></li>
+                                    <li>Abrir Consulta: <a href="\\dt-val-98\I&C\Querys\Mis Query's -2017 y 2018\Lunes">Motivos de rechazo.sql</a></li>
+                                    <li>Seleccionar consulta Distribuidor</li>
+                                    <li>Seleccionar base de datos <strong>St_Multiregional</strong></li>
+                                    <li>Seleccionar opción guardar consulta en archivo</li>
+                                    <li>Ejecutar consulta</li>
+                                    <li>Guardar archivo en <span>Directorio de Extracción</span> con el nombre 'Motivos de rechazo Distr_[Fecha Extracción].rpt'</li>
+                                    <li>Cerrar consulta</li>
+                                    <li>Desconectarse del servidor <strong>SKYMXMULTI1</strong></li>
+                                    <li>Fin</li>
+                                </ol>
+                            </details>
+                        </blockquote>
+                    </details>
+                </section>
+                <!-- Fin Pen rechazo parcial y definitivo DI -->
+                
+                <!-- Inicia Pen 100% por contrato No ingresado -->
+                <section>
+                    <details class="abierto">
+                        <summary>Pen 100% por contrato No ingresado - 09</summary>
+                        <p>
+                            <span>Directorio de Extracción:</span> 
+                            <a href="\\dt-val-98\I&C\Proceso de Penalizaciones\Penalizaciones Contratos\Archivos_Soporte\Descomisión 100%\Extracciones 2018">
+                                \\dt-val-98\I&amp;C\Proceso de Penalizaciones\Penalizaciones Contratos\Archivos_Soporte\Descomisión 100%\Extracciones 2018
+                            </a>
+                        </p>
+
+                        <blockquote>
+                            <details class="abierto">
+                                <summary>Extracción Descomisiones</summary>
+                                <ol>
+
+                                    <li>Conectarse al servidor <strong>SKYMXSICO1</strong></li>
+                                    <li>Abrir Consulta: <a href="\\dt-val-98\I&C\Querys\Mis Query's -2017 y 2018\Lunes">Descomision 100% 2017_2018.sql</a></li>
+                                    <li>Seleccionar consulta Master</li>
+                                    <li>Seleccionar base de datos <strong>master</strong></li>
+                                    <li>Seleccionar opción guardar consulta en archivo</li>
+                                    <li>Ejecutar consulta</li>
+                                    <li>Guardar archivo en <span>Directorio de Extracción</span> con el nombre 'Descomisión_[Fecha Extracción].rpt'</li>
+                                    <li>Cerrar consulta</li>
+                                    <li>Desconectarse del servidor <strong>SKYMXSICO1</strong></li>
+                                    <li>Fin</li>
+                                </ol>
+                            </details>
+                        </blockquote>
+                        
+                        <blockquote>
+                            <details class="abierto">
+                                <summary>Extracción Montos</summary>
+                                <ol>
+
+                                    <li>Conectarse al servidor <strong>SKYMXSICO1</strong></li>
+                                    <li>Abrir Consulta: <a href="\\dt-val-98\I&C\Querys\Mis Query's -2017 y 2018\Lunes">Descomision 100% 2017_2018.sql</a></li>
+                                    <li>Cambiar id_activacion
+                                        <ol type="a">
+                                            <li>Obtener ID activación de la extracción de Descomisión</li>
+                                            <li>En la consulta Montos Descomisión remplazar el id_activacion por los obtenidos del archivo de extracción de Descomisión</li>
+                                            <li>Hacer los pasos anteriores por cada Master</li>
+                                        </ol>
+                                    </li>
+                                    <li>Seleccionar consulta MONTOS DESCOMISION</li>
+                                    <li>Seleccionar base de datos <strong>master</strong></li>
+                                    <li>Seleccionar opción guardar consulta en archivo</li>
+                                    <li>Ejecutar consulta</li>
+                                    <li>Guardar archivo en <span>Directorio de Extracción</span> con el nombre 'Descomisión_Montos [Fecha Extracción].rpt'</li>
+                                    <li>Cerrar consulta</li>
+                                    <li>Desconectarse del servidor <strong>SKYMXSICO1</strong></li>
+                                    <li>Fin</li>
+                                </ol>
+                            </details>
+                        </blockquote>
+                    </details>
+                </section>
+                <!-- Fin Pen 100% por contrato No ingresado -->
+                
+                <!-- Inicia Pen rechazo parcial y definitivo MS -->
+                <section>
+                    <details class="abierto">
+                        <summary>Pen rechazo parcial y definitivo MS (Calidad Masters) - 10</summary>
+                        <p>
+                            <span>Directorio de Extracción:</span> 
+                            <a href="\\dt-val-98\I&C\Proceso de Penalizaciones\Penalizaciones Contratos\Archivos_Soporte\Calidad\Extracciones">
+                                \\dt-val-98\I&amp;C\Proceso de Penalizaciones\Penalizaciones Contratos\Archivos_Soporte\Calidad\Extracciones
+                            </a>
+                        </p>
+                        
+                        <blockquote>
+                            <details class="abierto">
+                                <summary>Extracción Calidad</summary>
+                                <ol>
+                                    <li>Conectarse al servidor <strong>SKYMXSICO1</strong></li>
+                                    <li>Abrir Consulta: <a href="\\dt-val-98\I&C\Querys\Mis Query's -2017 y 2018\Lunes">Calidad_2017_2018_2019.sql</a></li>
+                                    <li>Seleccionar consulta de Master</li>
+                                    <li>Seleccionar base de datos <strong>master</strong></li>
+                                    <li>Seleccionar opción guardar consulta en archivo</li>
+                                    <li>Ejecutar consulta</li>
+                                    <li>Guardar archivo en <span>Directorio de Extracción</span> con el nombre 'Calidad_[Fecha extracción].rpt'</li>
+                                    <li>Cerrar consulta</li>
+                                    <li>Desconectarse del servidor <strong>SKYMXSICO1</strong></li>
+                                    <li>Fin</li>
+                                </ol>
+                            </details>
+                        </blockquote>
+                        
+                        <blockquote>
+                            <details class="abierto">
+                                <summary>Extracción Montos</summary>
+                                <ol>
+                                    <li>Conectarse al servidor <strong>SKYMXSICO1</strong></li>
+                                    <li>Abrir Consulta: <a href="\\dt-val-98\I&C\Querys\Mis Query's -2017 y 2018\Lunes">Calidad_2017_2018_2019.sql</a></li>
+                                    <li>
+                                        Cambiar id_activacion
+                                        <ol type="a">
+                                            <li>Obtener ID activación de la extracción de calidad Masters</li>
+                                            <li>En la consulta Montos Calidad remplazar el id_activacion por los obtenidos del archivo de calidad Masters</li>
+                                            <li>Hacer los pasos anteriores por cada Master</li>
+                                        </ol>
+                                    </li>
+                                    <li>Seleccionar consulta MONTOS CALIDAD</li>
+                                    <li>Seleccionar base de datos <strong>master</strong></li>
+                                    <li>Seleccionar opción guardar consulta en archivo</li>
+                                    <li>Ejecutar consulta</li>
+                                    <li>Guardar archivo en <span>Directorio de Extracción</span> con el nombre 'Montos Mast_[Fecha extracción].rpt'</li>
+                                    <li>Cerrar consulta</li>
+                                    <li>Desconectarse del servidor <strong>SKYMXSICO1</strong></li>
+                                    <li>Fin</li>
+                                </ol>
+                            </details>
+                        </blockquote>
+                        
+                        <blockquote>
+                            <details class="abierto">
+                                <summary>Extracción Motivos de Rechazo</summary>
+                                <ol>
+                                    <li>Conectarse al servidor <strong>SKYMXSICO1</strong></li>
+                                    <li>Abrir Consulta: <a href="\\dt-val-98\I&C\Querys\Mis Query's -2017 y 2018\Lunes">Motivos de rechazo.sql</a></li>
+                                    <li>Crear libro nuevo de Excel</li>
+                                    <li>Consolidar en Excel
+                                        <ol>
+                                            <li>Ejecutar consulta
+                                                <ol type="a">
+                                                    <li>Cambia el ID del Distribuidor (id_master en la consulta)</li>
+                                                    <li>Obtener ID activación de la extracción de calidad Master</li>
+                                                    <li>En la consulta Master remplazar el id_activacion por los obtenidos del archivo de extracción de calidad Master</li>
+                                                    <li>Selecciona la base de datos relacionada al Master</li>
+                                                    <li>Selecciona la consulta Master</li>
+                                                    <li>Ejecutar la consulta (F5)</li>
+                                                </ol>
+                                            </li>
+                                            <li>Copiar los datos de la consulta al libro creado de Excel</li>
+                                            <li>Hacer los pasos anteriores por cada Master de la tabla <strong>Distribuidores</strong></li>
+                                        </ol>
+                                    </li>
+                                    <li>Guardar archivo en <span>Directorio de Extracción</span> con el nombre 'Motivos de rechazo Calidad_[Fecha extracción].xlsx'</li>
+                                    <li>Cerrar consulta</li>
+                                    <li>Desconectarse del servidor <strong>SKYMXSICO1</strong></li>
+                                    <li>Fin</li>
+                                </ol>
+                            </details>
+                        </blockquote>
+                        
+                    </details>
+                </section>
+                <!-- Fin Pen rechazo parcial y definitivo DI -->
+                
+                <!-- Inicia Alteraciones -->
+                <section>
+                    <details class="abierto">
+                        <summary>Incumplimiento a la Normatividad (Alteraciones) - 11</summary>
+                        <p>
+                            <span>Directorio de Extracción:</span> 
+                            <a href="\\dt-val-98\I&C\Proceso de Penalizaciones\Alteraciones_Falsificación\Archivos de trabajo\Extracciones">
+                                \\dt-val-98\I&amp;C\Proceso de Penalizaciones\Alteraciones_Falsificación\Archivos de trabajo\Extracciones
+                            </a>
+                        </p>
+
+                        <blockquote>
+                            <details class="abierto">
+                                <summary>Extracción Master y Fuerza Propia</summary>
+                                <ol>
+
+                                    <li>Conectarse al servidor <strong>SKYMXSICO1</strong></li>
+                                    <li>Abrir Consulta: <a href="\\dt-val-98\I&C\Querys\Mis Query's -2017 y 2018\Lunes">Alteraciones.SQL</a></li>
+                                    <li>Crear un libro nuevo de Excel</li>
+                                    <li>Consolidar en Excel
+                                        <ol>
+                                            <li>Ejecutar consulta
+                                                <ol type="a">
+                                                    <li>Cambia el ID del Distribuidor (id_master en la consulta)</li>
+                                                    <li>Selecciona la base de datos relacionada al Master</li>
+                                                    <li>Seleccionar consulta Master</li>
+                                                    <li>Ejecutar la consulta (F5)</li>
+                                                </ol>
+                                            </li>
+                                            <li>Copiar los datos de la consulta al libro creado de Excel</li>
+                                            <li>Hacer los pasos anteriores por cada Master de la tabla <strong>Distribuidores</strong></li>
+                                        </ol>
+                                    </li>
+                                    <li>Cerrar consulta</li>
+                                    <li>Desconectarse del servidor <strong>SKYMXSICO1</strong></li>
+                                    <li>Conectarse al servidor <strong>SKYMXMULTI1</strong></li>
+                                    <li>Abrir Consulta: <a href="\\dt-val-98\I&C\Querys\Mis Query's -2017 y 2018\Lunes">Alteraciones.SQL</a></li>
+                                    <li>Consolidar en Excel
+                                        <ol>
+                                            <li>Ejecutar consulta
+                                                <ol type="a">
+                                                    <li>Seleccionar consulta del Distribuidor</li>
+                                                    <li>Selecciona la base de datos <strong>St_Multiregional</strong></li>
+                                                    <li>Ejecutar la consulta (F5)</li>
+                                                </ol>
+                                            </li>
+                                            <li>Copiar los datos de la consulta al libro creado de Excel</li>
+                                        </ol>
+                                    </li>
+                                    <li>Guardar archivo en <span>Directorio de Extracción</span> con el nombre 'Extracción de Alteraciones al [Fecha Extracción].xlsx'</li>
+                                    <li>Fin</li>
+                                </ol>
+                            </details>
+                        </blockquote>
+                    </details>
+                </section>
+                <!-- Finaliza Alteraciones -->
+                
+                <!-- Inicia Reactivación con cuenta cancelada -->
+                <section>
+                    <details class="abierto">
+                        <summary>Reactivación con cuenta cancelada - 13</summary>
+                        <p>
+                            <span>Directorio de Extracción:</span> 
+                            <a href="\\dt-val-98\I&C\Reportes Operativos\Extracción_Reactivación_cta cancelada\Extracciones">
+                                \\dt-val-98\I&amp;C\Reportes Operativos\Extracción_Reactivación_cta cancelada\Extracciones
+                            </a>
+                        </p>
+
+                        <blockquote>
+                            <details class="abierto">
+                                <summary>Extracción Master</summary>
+                                <ol>
+
+                                    <li>Conectarse al servidor <strong>SKYMXSICO1</strong></li>
+                                    <li>Abrir Consulta: <a href="\\dt-val-98\I&C\Querys\Mis Query's -2017 y 2018\Especiales">Proyecto Reactivación con cuenta Nueva.sql</a></li>
+                                    <li>Seleccionar consulta Master</li>
+                                    <li>Seleccionar base de datos <strong>master</strong></li>
+                                    <li>Seleccionar opción guardar consulta en archivo</li>
+                                    <li>Ejecutar consulta</li>
+                                    <li>Guardar archivo en <span>Directorio de Extracción</span> con el nombre 'Reactivación_Cta Cancelada_Master[Fecha extracción].rpt'</li>
+                                    <li>Fin</li>
+                                </ol>
+                            </details>
+                        </blockquote>
+                    
+                        <blockquote>
+                            <details class="abierto">
+                                <summary>Extracción Fuerzo Propia</summary>
+                                <ol>
+                                    <li>Conectarse al servidor <strong>SKYMXMULTI1</strong></li>
+                                    <li>Abrir Consulta: <a href="\\dt-val-98\I&C\Querys\Mis Query's -2017 y 2018\Especiales">Proyecto Reactivación con cuenta Nueva.sql</a></li>
+                                    <li>Seleccionar consulta Distribuidor</li>
+                                    <li>Seleccionar base de datos <strong>St_Multiregional</strong></li>
+                                    <li>Seleccionar opción guardar consulta en archivo</li>
+                                    <li>Ejecutar consulta</li>
+                                    <li>Guardar archivo en <span>Directorio de Extracción</span> con el nombre 'Reactivación_Cta Cancelada_Dist[Fecha extracción]_Distr.rpt'</li>
+                                    <li>Fin</li>
+                                </ol>
+                            </details>
+                        </blockquote>
+                    </details>
+                </section>
+                <!-- Finaliza Reactivación con cuenta cancelada -->
+                
+                <!-- Inicia Reporte Stacker -->
+                <section>
+                    <details class="abierto">
+                        <summary>Reporte Stacker - 15</summary>
+                        <p>
+                            <span>Directorio de Extracción:</span> 
+                            <a href="\\dt-val-98\I&C\Reportes Operativos\STACKER 2016\Extracciones Caracteristica 2018">
+                                \\dt-val-98\I&amp;C\Reportes Operativos\STACKER 2016\Extracciones Caracteristica 2018
+                            </a>
+                        </p>
+                        
+                        <blockquote>
+                            <details class="abierto">
+                                <summary>Extracción Master</summary>
+                                <ol>
+
+                                    <li>Conectarse al servidor <strong>SKYMXSICO1</strong></li>
+                                    <li>Abrir Consulta: <a href="\\dt-val-98\I&C\Querys\Mis Query's -2017 y 2018\Diario">Adic_Heat_SICO.sql</a></li>
+                                    <li>Seleccionar consulta Master</li>
+                                    <li>Seleccionar base de datos <strong>master</strong></li>
+                                    <li>Seleccionar opción guardar consulta en archivo</li>
+                                    <li>Guardar archivo en <span>Directorio de Extracción</span> con el nombre 'Adic_Heat_SICO_master_[Fecha extracción].rpt'</li>
+                                    <li>Cerrar consulta</li>
+                                    <li>Abrir Consulta: <a href="\\dt-val-98\I&C\Querys\Mis Query's -2017 y 2018\Diario">Caract_esp.sql</a></li>
+                                    <li>Seleccionar consulta Master</li>
+                                    <li>Seleccionar base de datos <strong>master</strong></li>
+                                    <li>Seleccionar opción guardar consulta en archivo</li>
+                                    <li>Guardar archivo en <span>Directorio de Extracción</span> con el nombre 'caract_esp_master_[Fecha extracción].rpt'</li>
+                                    <li>Fin</li>
+                                </ol>
+                            </details>
+                        </blockquote>
+                    
+                        <blockquote>
+                            <details class="abierto">
+                                <summary>Extracción Fuerzo Propia</summary>
+                                <ol>
+                                    <li>Conectarse al servidor <strong>SKYMXMULTI1</strong></li>
+                                    <li>Abrir Consulta: <a href="\\dt-val-98\I&C\Querys\Mis Query's -2017 y 2018\Diario">Adic_Heat_SICO.sql</a></li>
+                                    <li>Seleccionar consulta Distribuidor</li>
+                                    <li>Seleccionar base de datos <strong>St_Multiregional</strong></li>
+                                    <li>Seleccionar opción guardar consulta en archivo</li>
+                                    <li>Guardar archivo en <span>Directorio de Extracción</span> con el nombre 'Adic_Heat_SICO_dist_[Fecha extracción].rpt'</li>
+                                    <li>Cerrar consulta</li>
+                                    <li>Abrir Consulta: <a href="\\dt-val-98\I&C\Querys\Mis Query's -2017 y 2018\Diario">Caract_esp.sql</a></li>
+                                    <li>Seleccionar consulta Distribuidor</li>
+                                    <li>Seleccionar base de datos <strong>St_Multiregional</strong></li>
+                                    <li>Seleccionar opción guardar consulta en archivo</li>
+                                    <li>Guardar archivo en <span>Directorio de Extracción</span> con el nombre 'caract_esp_dist_[Fecha extracción].rpt'</li>
+                                    <li>Fin</li>
+                                </ol>
+                            </details>
+                        </blockquote>
+                        
+                        <blockquote>
+                            <details class="abierto">
+                                <summary>Extracción WEBI</summary>
+
+                                <p>
+                                    <span>Directorio de Extracción:</span> 
+                                    <a href="\\dt-val-98\I&C\Reportes Operativos\STACKER 2016\Extracciones WEBI 2018">
+                                        \\dt-val-98\I&amp;C\Reportes Operativos\STACKER 2016\Extracciones WEBI 2018
+                                    </a>
+                                </p>
+                                <ol>
+                                    <li>Abrir la aplicación WEBI</li>
+                                    <li>Conectarse al servidor</li>
+                                    <li>Abrir el documento Migración Eq</li>
+                                    <li>Editar documento</li>
+                                    <li>Modificar Fecha de consulta</li>
+                                    <li>Ejecutar consulta</li>
+                                    <li>Guardar archivo en <span>Directorio de Extracción</span> con el nombre 'Migración Eq Adc_[Rango de Fecha de consulta].xlsx'</li>
+                                    <li>Cerrar Documento</li>
+                                    <li>Abrir el documento Crecimiento SSP</li>
+                                    <li>Editar documento</li>
+                                    <li>Modificar Fecha de consulta</li>
+                                    <li>Ejecutar consulta</li>
+                                    <li>Guardar archivo en <span>Directorio de Extracción</span> con el nombre 'Crecimiento SSP_[Rango de Fecha de consulta].xlsx'</li>
+                                    <li>Cerrar Documento</li>
+                                    <li>Abrir el documento Reparaciones 2019</li>
+                                    <li>Editar documento</li>
+                                    <li>Modificar Fecha de consulta</li>
+                                    <li>Ejecutar consulta</li>
+                                    <li>Guardar archivo en <span>Directorio de Extracción</span> con el nombre 'Reparaciones 2019_[Rango de Fecha de consulta].xlsx'</li>
+                                    <li>Cerrar Documento</li>
+                                    <li>Abrir el documento Stacker 2018</li>
+                                    <li>Editar documento</li>
+                                    <li>Modificar Fecha de consulta</li>
+                                    <li>Ejecutar consulta</li>
+                                    <li>Guardar archivo en <span>Directorio de Extracción</span> con el nombre 'Equipo_Adicional_[Rango de Fecha de consulta].xlsx'</li>
+                                </ol>
+                            </details>
+                        </blockquote>
+                    </details>
+                </section>
+                <!-- Finaliza Reporte Stacker -->
+                
+                <!-- Inicia Remesas Ingresadas -->
+                <section>
+                    <details class="abierto">
+                        <summary>Remesas Ingresadas - 19</summary>
+                        <p>
+                            <span>Directorio de Extracción:</span> 
+                            <a href="\\dt-val-98\I&C\Reportes Operativos\Ventas\Antigüedad de Remesas\Extracciones">
+                                \\dt-val-98\I&amp;C\Reportes Operativos\Ventas\Antigüedad de Remesas\Extracciones
+                            </a>
+                        </p>
+
+                        <blockquote>
+                            <details class="abierto">
+                                <summary>Extracción Master</summary>
+                                <ol>
+
+                                    <li>Conectarse al servidor <strong>SKYMXSICO1</strong></li>
+                                    <li>Abrir Consulta: <a href="\\dt-val-98\I&C\Querys\Mis Query's -2017 y 2018\Viernes">Remesas_ingresadas.sql</a></li>
+                                    <li>Seleccionar consulta Master</li>
+                                    <li>Seleccionar base de datos <strong>master</strong></li>
+                                    <li>Seleccionar opción guardar consulta en archivo</li>
+                                    <li>Ejecutar consulta</li>
+                                    <li>Guardar archivo en <span>Directorio de Extracción</span> con el nombre 'Remesas I_[Fecha extracción].rpt'</li>
+                                    <li>Fin</li>
+                                </ol>
+                            </details>
+                        </blockquote>
+                    
+                    </details>
+                    
+                </section>
+                <!-- Finaliza Remesas Ingresadas -->
+                
+                <!-- Inicia Remesas Ingresadas -->
+                <section>
+                    <details class="abierto">
+                        <summary>Sustituciones - 20</summary>
+                        <p>
+                            <span>Directorio de Extracción:</span> 
+                            <a href="\\dt-val-98\I&C\Reportes Operativos\Ventas\Sustitucion de Contratos_Jul2016\2019">
+                                \\dt-val-98\I&amp;C\Reportes Operativos\Ventas\Sustitucion de Contratos_Jul2016\2019
+                            </a>
+                        </p>
+                        
+                        <blockquote>
+                            <details class="abierto">
+                                <summary>Extracción Master</summary>
+                                <ol>
+
+                                    <li>Conectarse al servidor <strong>SKYMXSICO1</strong></li>
+                                    <li>Abrir Consulta: <a href="\\dt-val-98\I&C\Querys\Mis Query's -2017 y 2018\Viernes">Remesas_ingresadas.sql</a></li>
+                                    <li>Seleccionar consulta Master</li>
+                                    <li>Seleccionar base de datos <strong>master</strong></li>
+                                    <li>Seleccionar opción guardar consulta en archivo</li>
+                                    <li>Ejecutar consulta</li>
+                                    <li>Guardar archivo en <span>Directorio de Extracción</span> con el nombre 'Remesas I_[Fecha extracción].rpt'</li>
+                                    <li>Fin</li>
+                                </ol>
+                            </details>
+                        </blockquote>
+                    
+                    </details>
+                    
+                </section>
+                <!-- Finaliza Remesas Ingresadas -->
+                
+            </article>
+            <!-- Finaliza Proceso -->
+        </div>
+    </body>
+</html>

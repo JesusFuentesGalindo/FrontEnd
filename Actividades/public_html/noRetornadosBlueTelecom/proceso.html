@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Proceso No Retornados Blue Telecom</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="author" content="José de Jesús Fuentes Galindo" />
+        
+        <link rel="stylesheet" href="../css/efectoContraerExpandir.css" />
+        <script type="text/javascript" src="../js/efectoContraerExpandir.js"></script>
+        
+        <link rel="stylesheet" href="../css/basico.css" />
+    </head>
+    <body>
+        <div>
+            <header>
+                <p><a href="../index.html">Inicio</a></p>
+                <h1>Proceso de No Retornados Blue Telecom</h1>
+            </header>
+            
+            <!-- Inicia Generales -->
+            <article>
+                <header>
+                    <h2>Generales</h2>
+                </header>
+                <p>
+                    <span class="negrita">Objetivo</span>: Generar un reporte que permita conocer los contratos 
+                    <strong>Ingresados</strong> y <strong>No Ingresados</strong> relacionados con las activaciones
+                    del servicio de <strong>Blue Telecom</strong>…
+                </p>
+                
+                <p><span class="negrita">Justificación</span>: extrajeron</p>
+                
+                <p><span class="negrita">Resultado</span>: Concentrado de activaciones Blue Telecom en formato .xlsx con los siguientes indicadores:</p>
+                <ul>
+                    <li>Estatus de Contratos BT/Combo NE/Crecimientos Combo.</li>
+                    <li>Ingresados VS No Ingresados.</li>
+                    <li>Estatus de Contratos BT/Combo NE/Crecimientos Combo (Por comercializador).</li>
+                    <li>Estatus de Contratos BT/Combo NE/Crecimientos Combo (Por periodo).</li>
+                    <li>Estatus de Contratos BT/Combo NE/Crecimientos Combo (Calidad).</li>
+                    <li>Estatus de Contratos Combo NE/Crecimientos Combo.</li>
+                </ul>
+
+                <p><span class="negrita">Entrada</span>: Correo electrónico por tipo de activación.</p>
+                <p><span class="negrita">Áreas que intervienen:</span></p>
+                <ul>
+                    <li>Información y Control</li>
+                    <li>Mesa de Validación.</li>
+                </ul>
+
+                <p><span class="negrita">Comunicación: </span></p>
+                <ul>
+                    <li>Correo electrónico.
+                        <ul>
+                            <li>Borboa Hernandez Lidia Veronica <a href="mailto:lvborboa@sky.com.mx">lvborboa@sky.com.mx</a> (Supervisor de información y control).</li>
+                            <li>Herrera Díaz Jonathan <a href="mailto:JOHERRERA@sky.com.mx">JOHERRERA@sky.com.mx</a> (Especialista mesa de validación).</li>
+                        </ul>
+                    </li>
+                    <li>Teléfono
+                        <ul>
+                            <li>Borboa Hernandez Lidia Veronica <span class="negrita">Ext. 87303</span></li>
+                            <li>Herrera Díaz Jonathan <span class="negrita">Ext. 8445</span></li>
+                        </ul>
+                    </li>
+                    
+                </ul>
+            </article>
+            
+            <article>
+                <header>
+                    <h2>Particulares</h2>
+                </header>
+                
+                <h3>Tipos de Activación</h3>
+                <p>Existen 4 tipos de activaciones en función de la promoción, a saber:</p>
+                <ul>
+                    <li>Activaciones AIR.</li>
+                    <li>Activaciones Blue Telecom.</li>
+                    <li>Activaciones Combo.</li>
+                    <li>Crecimientos Combo.</li>
+                </ul>
+                
+                <h3>Estructura del Contrato</h3>
+                <details class="abierto">
+                <summary>Los siguientes, son los campos necesarios para la generación del reporte:</summary>
+                <dl>
+                    <dt><span class="negrita">COMERCIALIZADOR_FINAL:</span></dt>
+                    <dd>Pendiente definición</dd>
+                    <dt><span class="negrita">COMERCIALIZADOR:</span></dt>
+                    <dd>Pendiente definición</dd>
+                    <dt><span class="negrita">MASTER:</span></dt>
+                    <dd>Pendiente definición</dd>
+                    <dt><span class="negrita">CUENTA:</span></dt>
+                    <dd>Número de cuenta del cliente.</dd>
+                    <dt><span class="negrita">FECHA ACTIVACION:</span></dt>
+                    <dd>Fecha en que se realizó la activación del servicio.</dd>
+                    <dt><span class="negrita">Días transcurridos:</span></dt>
+                    <dd>Días que han pasado desde la activación del servicio hasta la fecha actual (Calculado).</dd>
+                    <dt><span class="negrita">Período:</span></dt>
+                    <dd>Clasificación que se asigna en función de los Días transcurridos.</dd>
+                    <dt><span class="negrita">ESTADO:</span></dt>
+                    <dd>Estado de la republico en donde se realizó la activación.</dd>
+                    <dt><span class="negrita">PAQUETE PRINCIPAL:</span></dt>
+                    <dd>Paquete de la activación.</dd>
+                    <dt><span class="negrita">CVE_DISTRIBUIDOR:</span></dt>
+                    <dd>Clave del distribuidor.</dd>
+                    <dt><span class="negrita">DISTRIBUIDOR:</span></dt>
+                    <dd>Nombre del distribuidor.</dd>
+                    <dt><span class="negrita">IRD:</span></dt>
+                    <dd>Pendiente definición</dd>
+                    <dt><span class="negrita">CONTRATO:</span></dt>
+                    <dd>Número de contrato de la activación.</dd>
+                    <dt><span class="negrita">FORMAPAGO:</span></dt>
+                    <dd>Forma de pago de la activación.</dd>
+                    <dt><span class="negrita">DISTRIBUIDORVENTA:</span></dt>
+                    <dd>Pendiente definición</dd>
+                    <dt><span class="negrita">NOMBREDISTRIBUIDOR:</span></dt>
+                    <dd>Pendiente definición</dd>
+                    <dt><span class="negrita">DESCRIPCION PROMOCION:</span></dt>
+                    <dd>Pendiente definición</dd>
+                    <dt><span class="negrita">CANAL DE VENTA:</span></dt>
+                    <dd>Pendiente definición</dd>
+                    <dt><span class="negrita">VENDEDOR:</span></dt>
+                    <dd>Pendiente definición</dd>
+                    <dt><span class="negrita">INDICADOR_REVENTA_SAIB:</span></dt>
+                    <dd>Pendiente definición></dd>
+                    <dt><span class="negrita">Alámbrico / Inalámbrico:</span></dt>
+                    <dd>Pendiente definición</dd>
+                    <dt><span class="negrita">Estatus de Ingreso:</span></dt>
+                    <dd>Pendiente definición</dd>
+                    <dt><span class="negrita">Estatus de validación:</span></dt>
+                    <dd>Pendiente definición</dd>
+                    <dt><span class="negrita">Fecha de Recibido:</span></dt>
+                    <dd>Pendiente definición</dd>
+                </dl>
+                </details>
+            </article>
+            
+            <article>
+                <header>
+                    <h2>Proceso</h2>
+                </header>
+                
+                <details class="abierto">
+                    <summary>Extracción</summary>
+                    <p>
+                        Esta actividad permite extraer los datos de las activaciones 
+                        de los diferentes archivos en los que se encuentran, los archivos son:
+                    </p>
+                    <ul>
+                        <li>Activaciones AIR.</li>
+                        <li>Activaciones Blue Telecom.</li>
+                        <li>Activaciones Combo</li>
+                        <li>Crecimientos a Combo</li>
+                    </ul>
+
+                    <ol>
+                        <li>Para cada archivo de activación se extrae los campos que contiene.</li>
+                        <li>Extraer los datos de cada archivo mediante la función de Access ‘Importar a una hoja de cálculo de Excel’.</li>
+                        <li>Por cada archivo crear una tabla, en caso de que no exista, para almacenar los datos.</li>
+                        <li>
+                            A cada tabla añadir los siguientes campos:
+                            <ol type="a">
+                                <li>Alámbrico / Inalámbrico.</li>
+                                <li>Estatus de Ingreso.</li>
+                                <li>Estatus de validación.</li>
+                                <li>Fecha de Recibido.</li>
+                            </ol>
+                        </li>
+                        <li>Fin.</li>
+                    </ol>
+                </details>
+                
+                <details class="abierto">
+                    <summary>Consolidación</summary>
+                    <p>Esta actividad permite consolidar los datos de las diferentes tablas en un concentrado único.</p>
+                    <ol>
+                        <li>
+                            Para el caso de las Activaciones AIR aplicar lo siguiente:
+                            <ol type="a">
+                                <li>En el campo [Alámbrico / Inalámbrico] agregar la leyenda “Inalámbrico”.</li>
+                                <li>En el campo [INDICADOR_REVENTA_SAIB] agregar la leyenda “Inalámbrico”.</li>
+                                <li>En el campo [Fecha de Recibido] agregar la fecha en que se recibió el archivo de activación.</li>
+                                <li>En el campo [Estatus de Ingreso] agregar la leyenda “No Ingresado”.</li>
+                                <li>En el campo [Estatus de validación] agregar la leyenda “No Ingresado”.</li>
+                            </ol>
+                        </li>
+                        <li>
+                            Para el caso de las Activaciones Blue Telecom aplicar lo siguiente:
+                            <ol type="a">
+                                <li>En el campo [Alámbrico / Inalámbrico] agregar la leyenda “Alámbrico”.</li>
+                                <li>
+                                    En el campo [INDICADOR_REVENTA_SAIB] agregar el valor del campo Prom. de Activación, éste valor los puedes consultar de la siguiente manera:
+                                    <ol type="i">
+                                        <li>Abrir SIEBEL.</li>
+                                        <li>Realizar una búsqueda por cuenta.</li>
+                                        <li>Ir a Activaciones/Contratos.</li>
+                                        <li>Buscar el campo Prom. de Activación.</li>
+                                    </ol>
+                                </li>
+                                <li>
+                                    Los valores permitidos para el campo [INDICADOR_REVENTA_SAIB], son los siguientes:
+                                    <ol type="i">
+                                        <li>Reventa.</li>
+                                        <li>Reventa Nueva.</li>
+                                        <li>Reventa Existente.</li>
+                                        <li>SAIP.</li>
+                                    </ol>
+                                </li>
+                                <li>En el campo [Fecha de Recibido] agregar la fecha en que se recibió el archivo de activación.</li>
+                                <li>En el campo [Estatus de Ingreso] agregar la leyenda “No Ingresado”.</li>
+                                <li>En el campo [Estatus de validación] agregar la leyenda “No Ingresado”.</li>
+                            </ol>
+                        </li>
+                        <li>
+                            Para el caso de las Activaciones Combo aplicar lo siguiente:
+                            <ol type="a">
+                                <li>En el campo [Alámbrico / Inalámbrico] agregar la leyenda “Inalámbrico”.</li>
+                                <li>En el campo [INDICADOR_REVENTA_SAIB] agregar la leyenda “Combo NE”.</li>
+                                <li>Eliminar los registros que en el campo [TIPO_EQUIPO] sean diferentes de “Modem”.</li>
+                                <li>En el campo [Fecha de Recibido] agregar la fecha en que se recibió el archivo de activación.</li>
+                                <li>En el campo [Estatus de Ingreso] agregar la leyenda “No Ingresado”.</li>
+                                <li>En el campo [Estatus de validación] agregar la leyenda “No Ingresado”.</li>
+                            </ol>
+                        </li>
+                        <li>
+                            Para el caso de los Crecimientos a Combo:
+                            <ol type="a">
+                                <li>En el campo [Alámbrico / Inalámbrico] agregar la leyenda “Inalámbrico”.</li>
+                                <li>En el campo [INDICADOR_REVENTA_SAIB] agregar la leyenda “Crecimiento Combo”.</li>
+                                <li>En el campo [Fecha de Recibido] agregar la fecha en que se recibió el archivo de activación.</li>
+                                <li>En el campo [Estatus de Ingreso] agregar la leyenda “No Ingresado”.</li>
+                                <li>En el campo [Estatus de validación] agregar la leyenda “No Ingresado”.</li>
+                            </ol>
+                        </li>
+                        <li>Anexar los registros de cada tabla de activación a la tabla ‘Activaciones’.</li>
+                        <li>Homologar nombres de Masters.</li>
+                        <li>Añadir Master ID.</li>
+                        <li>Clasificar Distribuidor.</li>
+                        <li>Generar Formato de reporte.</li>
+                    </ol>
+                    
+                </details>	
+
+            </article>
+            
+        </div>
+    </body>
+</html>

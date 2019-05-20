@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Penalizaciones</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="author" content="José de Jesús Fuentes Galindo" />
+        
+        <link rel="stylesheet" href="../css/efectoContraerExpandir.css" />
+        <script type="text/javascript" src="../js/efectoContraerExpandir.js"></script>
+        
+        <link rel="stylesheet" href="../css/basico.css" />
+    </head>
+    <body>
+        <div>
+            <header>
+                <p><a href="../index.html">Inicio</a></p>
+                <h1>Base de Datos Penalizaciones</h1>
+            </header>
+            
+            <article>
+                <header>
+                    <h2>Generales</h2>
+                </header>
+                
+                <p>
+                    <span class="negrita">Objetivo:</span>
+                    Desarrollar una base de datos que sirva como respaldo de los datos resultado
+                    del proceso de penalización, del área de información y control.
+                </p>
+                
+                <p>
+                    <span class="negrita">Justificación:</span>
+                    Mantener los datos resultado del proceso de penalización bajo un formato
+                    que garantice la seguridad, consistencia y persistencia de los mismos.
+                </p>
+                
+                <p>
+                    <span class="negrita">Resultado:</span>
+                    Base de datos bajo la plataforma Access.
+                </p>
+            </article>
+            
+            <article>
+                <header>
+                    <h2>Particulares</h2>
+                </header>
+                
+                <h3>Tablas</h3>
+                
+                <!-- Inicia Tabla Activacion -->
+                <details class="abierto" id="activacion">
+                    <summary>Activacion</summary>
+                    <p>
+                        <span class="negrita">Rol: </span>
+                        Esta tabla almacena el conjunto de activaciones que se realiza
+                        por contrato, ya sea una activación nueva o un crecimiento.
+                    </p>
+                    
+                    <blockquote>
+                        <details class="abierto">
+                            <summary class="negrita">Relaciones:</summary>
+                            <table>
+                                <thead>
+                                    <tr><th>Tabla</th><th>Relación</th><th>Participación</th><th>Atributo</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>Contrato</td><td>n:1</td><td>1..1</td><td>idContrato</td></tr>
+                                    <tr><td>Comercializador</td><td>n:1</td><td>1..1</td><td>idComercializador</td></tr>
+                                    <tr><td>Instalador</td><td>n:1</td><td>1..1</td><td>idInstalador</td></tr>
+                                    <tr><td>Penalización</td><td>1:1</td><td>1..1</td><td></td></tr>
+                                </tbody>
+                            </table>
+                        </details>
+                    </blockquote>
+                    
+                    <blockquote>
+                        <details class="abierto">
+                            <summary class="negrita">Atributos:</summary>
+                            <table>
+                                <thead>
+                                    <tr><th>Atributo</th><th>Tipo</th><th>Alias</th><th>PK</th><th>null</th><th>unique</th><th>Indexado</th><th>Requerido</th><th>Descripción</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>idActivacion</td><td>CADENA(20)</td><td>concatena</td><td>Si</td><td>No</td><td>Si</td><td>Si</td><td>Si</td><td>Identificador de la activación</td></tr>
+                                    <tr><td>idComercializador</td><td>CADENA(6)</td><td>id_master</td><td>No</td><td>No</td><td>No</td><td>Si</td><td>Si</td><td>Identificador del comercializador</td></tr>
+                                    <tr><td>idContrato</td><td>CADENA(15)</td><td>Contrato</td><td>No</td><td>No</td><td>No</td><td>Si</td><td>Si</td><td>Identificador del contrato</td></tr>
+                                    <tr><td>idInstalador</td><td>CADENA(20)</td><td>distribuidor_instalacion</td><td>No</td><td>No</td><td>No</td><td>Si</td><td>Si</td><td>Identificador del instalador</td></tr>
+                                    <tr><td>activacion</td><td>CADENA(10)</td><td>id_activacion</td><td>No</td><td>No</td><td>No</td><td>Si</td><td>Si</td><td>Número de activación</td></tr>
+                                    <tr><td>claveActivacion</td><td>CADENA(30)</td><td>clave_activacion_sky</td><td>No</td><td>Si</td><td>No</td><td>No</td><td>No</td><td>Pendiente</td></tr>
+                                    <tr><td>nombrePromocion</td><td>CADENA(50)</td><td>nombre_prom</td><td>No</td><td>Si</td><td>No</td><td>No</td><td>No</td><td>Nombre de la promoción utilizada para la activación</td></tr>
+                                    <tr><td>nombrePaquete</td><td>CADENA(50)</td><td>nombre_paquete</td><td>No</td><td>Si</td><td>No</td><td>No</td><td>No</td><td>Nombre del paquete utilizado para la activación</td></tr>
+                                    <tr><td>tipoActivacion</td><td>CADENA(5)</td><td>tipo_activacion</td><td>No</td><td>No</td><td>No</td><td>No</td><td>Si</td><td>Identifica el tipo de activación que se realizó N, C, T</td></tr>
+                                    <tr><td>fechaActivacion</td><td>FECHA(dd/mm/yyyy)</td><td>fecha_activacion</td><td>No</td><td>No</td><td>No</td><td>No</td><td>Si</td><td>Fecha en que se realizó la activación</td></tr>
+                                    <tr><td>tipoInstalacion</td><td>CADENA(15)</td><td>tipo_instalacion</td><td>No</td><td>No</td><td>No</td><td>No</td><td>Si</td><td>Pendiente</td></tr>
+                                    <tr><td>estado</td><td>CADENA(10)</td><td>Estado</td><td>No</td><td>Si</td><td>No</td><td>No</td><td>No</td><td>Pendiente</td></tr>
+                                    <tr><td>noEquipoInicial</td><td>ENTERO</td><td>id_no_equipo_ini</td><td>No</td><td>No</td><td>No</td><td>No</td><td>Si</td><td>Número de equipos antes de la activación</td></tr>
+                                    <tr><td>noEquipoFinal</td><td>ENTERO</td><td>id_no_equipo_fin</td><td>No</td><td>No</td><td>No</td><td>No</td><td>Si</td><td>Número de equipos despues de la activación</td></tr>
+                                    <tr><td>comentario</td><td>CADENA(255)</td><td>COMENTARIO</td><td>No</td><td>Si</td><td>No</td><td>No</td><td>No</td><td>Estado de la activación despues del proceso de penalización</td></tr>
+                                </tbody>
+                            </table>
+                        </details>
+                    </blockquote>
+                </details>
+                <!-- Finaliza Tabla Activacion -->
+                
+                <!-- Inicia Tabla Comercializador -->
+                <details class="abierto" id="comercializador">
+                    <summary>Comercializador</summary>
+                    <p>
+                        <span class="negrita">Rol: </span>
+                        Esta tabla almacena el conjunto de comercializadores que pueden realizar activaciones.
+                    </p>
+                    
+                    <blockquote>
+                        <details class="abierto">
+                            <summary class="negrita">Relaciones:</summary>
+                            <table>
+                                <thead>
+                                    <tr><th>Tabla</th><th>Relación</th><th>Participación</th><th>Atributo</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>Activación</td><td>1:n</td><td>0..*</td><td></td></tr>
+                                </tbody>
+                            </table>
+                        </details>
+                    </blockquote>
+                    
+                    <blockquote>
+                        <details class="abierto">
+                            <summary class="negrita">Atributos:</summary>
+                            <table>
+                                <thead>
+                                    <tr><th>Atributo</th><th>Tipo</th><th>Alias</th><th>PK</th><th>null</th><th>unique</th><th>Indexado</th><th>Requerido</th><th>Descripción</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>idComercializador</td><td>CADENA(6)</td><td>id_master</td><td>Si</td><td>No</td><td>Si</td><td>Si</td><td>Si</td><td>Identificador del comercializador</td></tr>
+                                    <tr><td>nombre</td><td>CADENA(50)</td><td>master</td><td>No</td><td>No</td><td>No</td><td>No</td><td>Si</td><td>Nombre del comercializador</td></tr>
+                                    <tr><td>tipo</td><td>CADENA(15)</td><td>Tipo Comer</td><td>No</td><td>No</td><td>Si</td><td>No</td><td>Si</td><td>Tipo del comercializador (Master o Distribuidor)</td></tr>
+                                </tbody>
+                            </table>
+                        </details>
+                    </blockquote>
+                </details>
+                <!-- Finaliza Tabla Comercializador -->
+                
+                <!-- Inicia Tabla Contrato -->
+                <details class="abierto" id="contrato">
+                    <summary>Contrato</summary>
+                    <p>
+                        <span class="negrita">Rol: </span>
+                        Esta tabla almacena el conjunto de contratos a los que se les puede realizar una activación y pueden ser penalizados.
+                    </p>
+                    
+                    <blockquote>
+                        <details class="abierto">
+                            <summary class="negrita">Relaciones:</summary>
+                            <table>
+                                <thead>
+                                    <tr><th>Tabla</th><th>Relación</th><th>Participación</th><th>Atributo</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>Activacion</td><td>1:n</td><td>1..*</td><td></td></tr>
+                                    <tr><td>Contrato-Remesa</td><td>1:n</td><td>0..*</td><td></td></tr>
+                                </tbody>
+                            </table>
+                        </details>
+                    </blockquote>
+                    
+                    <blockquote>
+                        <details class="abierto">
+                            <summary class="negrita">Atributos:</summary>
+                            <table>
+                                <thead>
+                                    <tr><th>Atributo</th><th>Tipo</th><th>Alias</th><th>PK</th><th>null</th><th>unique</th><th>Indexado</th><th>Requerido</th><th>Descripción</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>idContrato</td><td>CADENA(15)</td><td>Contrato</td><td>Si</td><td>No</td><td>Si</td><td>Si</td><td>Si</td><td>Identificador del contrato</td></tr>
+                                    <tr><td>estatusContrato</td><td>CADENA(100)</td><td>descripcion_estatus</td><td>No</td><td>Si</td><td>No</td><td>No</td><td>No</td><td>Estatus del contrato</td></tr>
+                                    <tr><td>estatusValidacion</td><td>CADENA(100)</td><td>descripcion_subestatus</td><td>No</td><td>Si</td><td>No</td><td>No</td><td>No</td><td>Estatus del contrato en mesa de validación</td></tr>
+                                    <tr><td>fechaCarga</td><td>FECHA(dd/mm/yyyy)</td><td>Fecha Carga</td><td>No</td><td>No</td><td>No</td><td>No</td><td>No</td><td>Fecha de carga del contrato en la plataforma SIEBEL</td></tr>
+                                    <tr><td>cuenta</td><td>CADENA(50)</td><td>Cuenta</td><td>No</td><td>No</td><td>Si</td><td>Si</td><td>Si</td><td>Número de cuenta del contrato</td></tr>
+                                    <tr><td>tipoCuenta</td><td>CADENA(50)</td><td>tipo_cuenta</td><td>No</td><td>Si</td><td>No</td><td>No</td><td>No</td><td>Pendiente</td></tr>
+                                </tbody>
+                            </table>
+                        </details>
+                    </blockquote>
+                </details>
+                <!-- Finaliza Tabla Contrato -->
+                
+                <!-- Inicia Tabla Contrato-Remesa -->
+                <details class="abierto" id="contrato">
+                    <summary>Contrato-Remesa</summary>
+                    <p>
+                        <span class="negrita">Rol: </span>
+                        Esta tabla almacena el conjunto de relaciones entre contratos y remesas.
+                    </p>
+                    
+                    <blockquote>
+                        <details class="abierto">
+                            <summary class="negrita">Relaciones:</summary>
+                            <table>
+                                <thead>
+                                    <tr><th>Tabla</th><th>Relación</th><th>Participación</th><th>Atributo</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>Contrato</td><td>n:1</td><td>1..1</td><td></td></tr>
+                                    <tr><td>Remesa</td><td>1:n</td><td>1..1</td><td></td></tr>
+                                </tbody>
+                            </table>
+                        </details>
+                    </blockquote>
+                    
+                    <blockquote>
+                        <details class="abierto">
+                            <summary class="negrita">Atributos:</summary>
+                            <table>
+                                <thead>
+                                    <tr><th>Atributo</th><th>Tipo</th><th>Alias</th><th>PK</th><th>null</th><th>unique</th><th>Indexado</th><th>Requerido</th><th>Descripción</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>idContrato</td><td>CADENA(15)</td><td>Contrato</td><td>Si</td><td>No</td><td>No</td><td>No</td><td>Si</td><td>Identificador del contrato</td></tr>
+                                    <tr><td>idComercializador</td><td>CADENA(6)</td><td>id_master</td><td>Si</td><td>No</td><td>No</td><td>Si</td><td>Si</td><td>Identificador del comercializador</td></tr>
+                                    <tr><td>idRemesa</td><td>ENTERO</td><td>id_remesa_poliza</td><td>Si</td><td>No</td><td>No</td><td>Si</td><td>Si</td><td>Identificador de la remesa</td></tr>
+                                    <tr><td>idActivacion</td><td>CADENA(20)</td><td>concatena</td><td>No</td><td>No</td><td>Si</td><td>Si</td><td>Si</td><td>Identificador de la activación</td></tr>
+                                </tbody>
+                            </table>
+                        </details>
+                    </blockquote>
+                </details>
+                <!-- Finaliza Tabla Contrato-Remesa -->
+                
+            </article>
+        </div>
+    </body>
+</html>
