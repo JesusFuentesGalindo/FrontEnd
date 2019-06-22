@@ -1,0 +1,41 @@
+Módulo
+Aclaraciones por Ajuste
+Administración de Modulos
+Ajustes 2
+Ajustes a Cuenta
+Ajustes a Evento
+Ajustes masivos a Evento
+Ajustes por Facturar
+Bandera Recibe Pagos
+Bill Now
+Bitacora
+Calendarizacion
+Cargo por Cuenta
+Cargos por Archivo
+Cheques Devueltos
+Clearing House
+Codigos de Respuesta
+Control de Procesos
+Dispersión de Pagos
+Ente
+Hard Declined
+Monto Máximo
+NRC Consulta
+Pago por Archivo
+Pago por Cuenta
+Pagos Erroneos
+Pagos No Aplicados
+Países
+Parametros del Sistema
+Reintentos
+Reporte Ajustes
+Reporte Clearing Houses
+Reporte Clearing Houses/Entes
+Reporte de Pago
+Reporte Duplicados CUDB
+Reporte Emisiones
+Roles
+Suspense
+Tarjeta de Crédito
+Tipo de Cambio
+Usuarios
